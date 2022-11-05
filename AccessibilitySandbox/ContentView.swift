@@ -26,15 +26,26 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(pictures[selectedPicture])
+//            Image(pictures[selectedPicture])
+//                .resizable()
+//                .scaledToFit()
+//                .accessibilityLabel(labels[selectedPicture])
+//                .accessibilityAddTraits(.isButton)
+//                .accessibilityRemoveTraits(.isImage)
+//                .onTapGesture {
+//                    selectedPicture = Int.random(in: 0...3)
+//                }
+//
+            Image(decorative: "character") // not read by voice over
                 .resizable()
                 .scaledToFit()
-                .accessibilityLabel(labels[selectedPicture])
-                .accessibilityAddTraits(.isButton)
-                .accessibilityRemoveTraits(.isImage)
-                .onTapGesture {
-                    selectedPicture = Int.random(in: 0...3)
-                }
+            
+            VStack {
+                Text("Your score is")
+                Text("1000")
+                    .font(.title)
+            }
+            .accessibilityElement(children: .combine)
             
         }
     }
